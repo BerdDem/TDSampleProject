@@ -8,6 +8,8 @@ namespace Enemy
     {
         public Action<EnemyCharacter> deathAction;
         public Action<EnemyCharacter> onFinishPointAction;
+        
+        public Vector3 velocity => m_navMeshAgent.velocity;
 
         [SerializeField] private NavMeshAgent m_navMeshAgent;
 
@@ -29,7 +31,7 @@ namespace Enemy
         {
         }
 
-        private void Death()
+        public void Death()
         {
             deathAction?.Invoke(this);
         }
